@@ -1,6 +1,8 @@
+import styles from "../styles/components/profile-button.module.scss";
+
 const ProfileButton = () => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<div></div>
 		</div>
 	);
