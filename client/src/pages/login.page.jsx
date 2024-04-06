@@ -16,6 +16,10 @@ const Login = () => {
 		<div className={styles.page}>
 			<div className={styles.visualization}>
 				<div className={styles.background}>
+					<img
+						alt="ING Bank"
+						src="/wallpaper-ing.jpg"
+					/>
 					<div className={styles.overlay} />
 					<div className={styles.pattern} />
 					<div className={styles.pattern} />
