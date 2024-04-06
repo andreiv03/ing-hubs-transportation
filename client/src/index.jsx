@@ -10,17 +10,19 @@ import "./styles/globals.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route
-					path="/"
-					element={<App />}
-				/>
-				<Route
-					path="/login"
-					element={<Login />}
-				/>
-			</Routes>
-		</BrowserRouter>
+		<AuthContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route
+						path="/"
+						element={<App />}
+					/>
+					<Route
+						path="/login"
+						element={<Login />}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</AuthContextProvider>
 	</React.StrictMode>
 );
