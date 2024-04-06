@@ -1,16 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+
+import { AuthContextProvider } from "./contexts/auth.context";
 
 import App from "./pages/app.page";
 import Login from "./pages/login.page";
+import ProfileButton from "./components/profile-button.component";
 
 import "./styles/globals.scss";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-	<React.StrictMode>
-		<BrowserRouter>
+const RoutesComponent = () => {
+	const location = useLocation();
+
+	return (
+		<>
 			<Routes>
 				<Route
 					path="/"
@@ -21,6 +25,19 @@ root.render(
 					element={<Login />}
 				/>
 			</Routes>
-		</BrowserRouter>
+
+			{location.pathname !== "/login" && <ProfileButton />}
+		</>
+	);
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+	<React.StrictMode>
+		<AuthContextProvider>
+			<BrowserRouter>
+				<RoutesComponent />
+			</BrowserRouter>
+		</AuthContextProvider>
 	</React.StrictMode>
 );

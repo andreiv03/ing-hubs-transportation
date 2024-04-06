@@ -75,8 +75,21 @@
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			height: 100%;
 			width: 100%;
 			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+
+			& > div {
+				height: 75%;
+				width: 75%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 
 			img {
 				height: 75px;
@@ -94,6 +107,10 @@
 		align-items: center;
 		flex-direction: column;
 		flex: 1;
+
+		@media screen and (max-width: 425px) {
+			padding: 1rem;
+		}
 
 		.top_section {
 			display: flex;
@@ -126,7 +143,7 @@
 				width: 100%;
 				padding: 0 1rem;
 				background-color: var(--background-secondary);
-				border-radius: 0.25rem;
+				border-radius: 0.5rem;
 				color: var(--foreground-secondary);
 				font-size: 0.9rem;
 				font-weight: 500;
@@ -175,14 +192,14 @@
 				width: 100%;
 				margin-top: 1rem;
 				background-color: var(--accent-one);
-				border-radius: 0.25rem;
+				border-radius: 0.5rem;
 				color: var(--background-primary);
 				font-weight: 500;
 				cursor: pointer;
 				transition: background-color 150ms ease-in;
 
 				&:hover {
-					background-color: hsl(17, 100%, 45%);
+					background-color: var(--accent-two);
 				}
 			}
 		}
