@@ -1,0 +1,57 @@
+:root {
+	--foreground-primary: #000000;
+	--foreground-seconary: #373737;
+
+	--background-primary: #ffffff;
+	--background-secondary: #f3f3f3;
+
+	--accent-one: #ff5915;
+	--accent-two: #091c5a;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+input,
+button {
+	color: var(--foreground-primary);
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.25px;
+}
+
+input,
+button {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+body {
+	background: var(--background-primary);
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+::selection {
+	background: var(--accent-one);
+	color: var(--foreground-primary);
+}
+
+#root {
+	width: 100vw;
+	height: 100vh;
+}
+
+// Poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
