@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import routes from "../services/auth.service";
 
 export const AuthContext = createContext({});
 
@@ -35,7 +36,7 @@ export const AuthContextProvider = ({ children }) => {
 
 		const getUser = async () => {
 			try {
-				const { data } = await userService.getUser(accessToken);
+				const { data } = await routes.getUser();
 				setUser(data);
 			} catch (error) {
 				alert(error.response.data.message);
@@ -43,7 +44,7 @@ export const AuthContextProvider = ({ children }) => {
 		};
 
 		getUser();
-	}, [accessToken, callback]);
+	}, [accessToken]);
 
 	const state = {
 		// States

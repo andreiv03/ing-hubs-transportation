@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import styles from "../styles/pages/login-page.module.scss";
+import routes from "../services/auth.service";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -11,6 +12,16 @@ const Login = () => {
 		if (!password) return true;
 		return false;
 	};
+
+	async function handleSubmit() {
+		let { ok, data } = await routes.login(email, password);
+		if(!ok) {
+				console.log("Failed login");
+				return;
+		}
+		localStorage.setItem('jwtToken', data.token);
+		window.location.href = '/';
+	}
 
 	return (
 		<div className={styles.page}>
@@ -45,7 +56,7 @@ const Login = () => {
 
 				<form
 					noValidate
-					onSubmit={() => {}}
+					onSubmit={handleSubmit}
 				>
 					<input
 						autoComplete="email"
